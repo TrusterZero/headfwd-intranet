@@ -16,9 +16,31 @@ export class CategoryService {
   }
 
   refreshCategories(): void {
-    this.api.get(Resource.AllCategories).subscribe((categories: Category[]) => {
-      console.log(categories)
-      this.categories.next(categories);
-    });
+    // this.api.get(Resource.AllCategories).subscribe((categories: Category[]) => {
+    //   console.log(categories)
+    //   this.categories.next(categories);
+    // });
+    this.categories.next([
+      {
+        "id": 1,
+        "title": "Lorem Ipsum",
+        "pages":[]
+      },
+      {
+        "id": 2,
+        "title": "Lorem Ipsum",
+        "pages":[]
+      },
+      {
+        "id": 3,
+        "title": "Lorem Ipsum",
+        "pages":[]
+      },
+      {
+        "id": 3,
+        "title": "Lorem Ipsum",
+        "pages":[]
+      }
+    ]);
   }
 }
