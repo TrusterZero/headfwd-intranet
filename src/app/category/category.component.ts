@@ -9,14 +9,18 @@ import {CategoryService} from '../services/category.service';
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit {
-
-  category: Category = null
+  initialCategory: Category = {
+    id: null,
+    title: '',
+    pages: []
+  }
+  category: Category = this.initialCategory
   tempCategory: Category = new Category();
 
   constructor(private navigation: NavigationService, private categoryService: CategoryService) {
     navigation.activeCategory.subscribe((category: Category) => {
       if (!category) {
-        this.category = null;
+        this.category = this.initialCategory
         return;
       }
       this.category = category;
@@ -32,13 +36,7 @@ export class CategoryComponent implements OnInit {
     if (this.category && this.category.id) {
       this.categoryService.editCategory(this.category);
     } else {
-      const newCategory: Category = {
-        id: 99, // gets this id during testfase
-        title: document.getElementById('title').value,
-        pages: []
-      };
-
-      this.categoryService.createNewCategory(newCategory);
+      this.categoryService.createNewCategory(this.category);
     }
     this.navToDashboard();
   }
