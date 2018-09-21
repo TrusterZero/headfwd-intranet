@@ -32,6 +32,13 @@ export class CategoryService {
     this.categories.next(categories);
   }
 
+  deleteCategory(id: number) {
+    // this.api.delete(Resource.Categories, id);
+    const categories = this.categories.getValue();
+    const index = categories.indexOf(categories.find((category) => category.id === id));
+    categories.splice(index, 1);
+  }
+
   refreshCategories(): void {
     // this.api.get(Resource.AllCategories).subscribe((categories: Category[]) => {
     //   console.log(categories)

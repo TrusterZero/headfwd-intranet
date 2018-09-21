@@ -2,6 +2,7 @@
   <mat-form-field>
     <input matInput id="title" placeholder="Title" [(ngModel)]="category && category.title">
   </mat-form-field>
+  <h6 [hidden]="!category.id" (click)="deleteWarning()">Delete Category</h6>
   <div class="buttonHolder">
     <button mat-raised-button (click)="handleChanges()">Save</button>
     <button mat-raised-button (click)="cancelChanges()">Cancel</button>

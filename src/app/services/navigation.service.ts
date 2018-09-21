@@ -34,8 +34,13 @@ export class NavigationService {
       this.activeCategory.next(null);
       return;
     }
-    const categories = this.categoryService.categories.getValue()
-    this.activeCategory.next(categories.find((category) => id === category.id));
+    const categories = this.categoryService.categories.getValue();
+
+    const nextCategory = categories.find((category) => id === category.id);
+
+    if (nextCategory) {
+      this.activeCategory.next(nextCategory);
+    }
   }
 
   navigateToCategory(id) {

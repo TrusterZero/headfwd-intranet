@@ -10,7 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule,MatIconModule } from '@angular/material';
 import { NavigationComponent } from './navigation/navigation.component';
 import { HeaderComponent } from './header/header.component';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import {MessageComponent} from './message/message.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms'
     AdminDashboardComponent,
     NavigationComponent,
     HeaderComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,

@@ -10,7 +10,7 @@ import {Location} from '@angular/common';
 })
 export class AppComponent {
   title = 'headfwd-intranet';
-  ContentMode = ContentMode
+  ContentMode = ContentMode;
   activeContendMode: ContentMode;
 
   constructor(private navigation: NavigationService) {

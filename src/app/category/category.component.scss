@@ -1,5 +1,9 @@
 .buttonHolder {
+  clear:left;
   button{
     margin: 5px;
   }
+}
+mat-form-field {
+  float: left;
 }
