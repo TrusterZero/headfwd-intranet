@@ -7,8 +7,8 @@
   </mat-card>
 
   <mat-card class="cardHolder">
-    <mat-card-title><h3>Categories</h3></mat-card-title>
-    <mat-card *ngFor="let category of categories">
+    <mat-card-title><h3>Categories</h3><h6 (click)="navToCategory(null)">Add new Category</h6></mat-card-title>
+    <mat-card (click) = "navToCategory(category.id)" *ngFor="let category of categories">
       <mat-card-title>{{category.title}}</mat-card-title>
     </mat-card>
   </mat-card>

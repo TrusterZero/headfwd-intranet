@@ -1,6 +1,7 @@
 <header></header>
 <nav></nav>
 <div class="content">
-  <admin-dashboard></admin-dashboard>
+  <admin-dashboard [hidden]="activeContendMode !== ContentMode.dashboard"></admin-dashboard>
+  <category [hidden]="activeContendMode !== ContentMode.category"></category>
 </div>
 

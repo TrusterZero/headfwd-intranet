@@ -1,3 +1,9 @@
-<p>
-  category works!
-</p>
+<mat-card>
+  <mat-form-field>
+    <input matInput id="title" placeholder="Title" [(ngModel)]="category && category.title">
+  </mat-form-field>
+  <div class="buttonHolder">
+    <button mat-raised-button (click)="handleChanges(id)">Save</button>
+    <button mat-raised-button (click)="cancelChanges()">Cancel</button>
+  </div>
+</mat-card>

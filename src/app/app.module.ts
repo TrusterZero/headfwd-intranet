@@ -7,9 +7,10 @@ import { CategoryComponent } from './category/category.component';
 import { PageComponent } from './page/page.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material';
+import { MatCardModule, MatFormField, MatInput, MatButtonModule,MatIconModule } from '@angular/material';
 import { NavigationComponent } from './navigation/navigation.component';
 import { HeaderComponent } from './header/header.component';
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -18,13 +19,18 @@ import { HeaderComponent } from './header/header.component';
     PageComponent,
     AdminDashboardComponent,
     NavigationComponent,
-    HeaderComponent
+    HeaderComponent,
+    MatFormField,
+    MatInput
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatCardModule
+    FormsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

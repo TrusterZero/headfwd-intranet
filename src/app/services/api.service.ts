@@ -7,8 +7,8 @@ import {Observable} from "rxjs";
 const baseUrl = 'http://localhost:3000/';
 
 export enum Resource {
-  AllCategories = 'categories',
-  allPages = 'pages',
+  Categories = 'categories',
+  Pages = 'pages',
 
 }
 

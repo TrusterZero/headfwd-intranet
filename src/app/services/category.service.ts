@@ -15,6 +15,23 @@ export class CategoryService {
     this.refreshCategories();
   }
 
+  createNewCategory(category: Category) {
+    // this.api.post(Resource.Categories, category);
+
+    const categories = this.categories.getValue();
+    categories.push(category);
+    this.categories.next(categories);
+  }
+
+  editCategory(newCategory: Category) {
+    console.log(newCategory)
+    // this.api.put(Resource.Categories, category);
+    const categories = this.categories.getValue();
+    const index = categories.indexOf(categories.find((oldCategory) => oldCategory.id === newCategory.id));
+    categories[index] = newCategory;
+    this.categories.next(categories);
+  }
+
   refreshCategories(): void {
     // this.api.get(Resource.AllCategories).subscribe((categories: Category[]) => {
     //   console.log(categories)
@@ -37,7 +54,7 @@ export class CategoryService {
         "pages":[]
       },
       {
-        "id": 3,
+        "id": 4,
         "title": "Lorem Ipsum",
         "pages":[]
       }
