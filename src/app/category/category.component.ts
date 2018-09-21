@@ -9,22 +9,20 @@ import {CategoryService} from '../services/category.service';
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit {
-  initialCategory: Category = {
-    id: null,
-    title: '',
-    pages: []
-  }
-  category: Category = this.initialCategory
+
+  category: Category;
   tempCategory: Category = new Category();
 
   constructor(private navigation: NavigationService, private categoryService: CategoryService) {
+    this.resetCategory();
     navigation.activeCategory.subscribe((category: Category) => {
+
       if (!category) {
-        this.category = this.initialCategory
+        this.resetCategory()
         return;
       }
       this.category = category;
-      this.tempCategory.title =  category.title;
+      this.tempCategory.title = category.title;
     });
   }
 
@@ -42,10 +40,18 @@ export class CategoryComponent implements OnInit {
   }
 
   cancelChanges() {
-    if (this.category) {
-      this.category.title = this.tempCategory.title;
-    }
+    this.category.title = this.tempCategory.title;
+    this.navigation.setActiveCategory(null);
     this.navToDashboard();
+  }
+
+  resetCategory() {
+    this.category = {
+      id: null,
+      title: '',
+      pages: []
+    };
+    this.tempCategory = this.category;
   }
 
   ngOnInit() {
