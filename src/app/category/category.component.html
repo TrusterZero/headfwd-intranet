@@ -3,7 +3,7 @@
     <input matInput id="title" placeholder="Title" [(ngModel)]="category && category.title">
   </mat-form-field>
   <div class="buttonHolder">
-    <button mat-raised-button (click)="handleChanges(category.id)">Save</button>
+    <button mat-raised-button (click)="handleChanges()">Save</button>
     <button mat-raised-button (click)="cancelChanges()">Cancel</button>
   </div>
 </mat-card>
