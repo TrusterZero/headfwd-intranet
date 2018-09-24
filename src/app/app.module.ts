@@ -7,11 +7,13 @@ import { CategoryComponent } from './category/category.component';
 import { PageComponent } from './page/page.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule,MatIconModule } from '@angular/material';
+import { MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatListModule } from '@angular/material';
 import { NavigationComponent } from './navigation/navigation.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
 import {MessageComponent} from './message/message.component';
+import {PageService} from './services/page.service';
+import { NgxEditorModule } from 'ngx-editor';
 
 @NgModule({
   declarations: [
@@ -26,15 +28,17 @@ import {MessageComponent} from './message/message.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    NgxEditorModule,
     BrowserAnimationsModule,
     FormsModule,
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatListModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, PageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {NavigationService} from '../services/navigation.service';
 import {Category} from './category';
 import {CategoryService} from '../services/category.service';
-import {MessageService} from "../message/message.service";
-import {Message} from "../message/message.interface";
+import {MessageService} from '../message/message.service';
+import {Message} from '../message/message.interface';
 
 @Component({
   selector: 'category',
@@ -20,7 +20,7 @@ export class CategoryComponent implements OnInit {
     navigation.activeCategory.subscribe((category: Category) => {
 
       if (!category) {
-        this.resetCategory()
+        this.resetCategory();
         return;
       }
       this.category = category;
@@ -32,6 +32,10 @@ export class CategoryComponent implements OnInit {
   this.navigation.navigateToDashboard();
   }
 
+  navToPage(id) {
+    this.navigation.navigateToPage(id);
+  }
+
   handleChanges() {
     if (this.category && this.category.id) {
       this.categoryService.editCategory(this.category);
@@ -40,6 +44,7 @@ export class CategoryComponent implements OnInit {
       this.categoryService.createNewCategory(this.category);
     }
     this.navToDashboard();
+    this.message.show('Category saved!');
   }
 
   cancelChanges() {
@@ -50,10 +55,8 @@ export class CategoryComponent implements OnInit {
 
   deleteWarning() {
     const deleteWarning: Message = {
-      loading: false,
       action: () => this.deleteCategory(),
-      denyAction: () => {
-      },
+      denyAction: () => {},
       text: 'Are you sure?',
       acceptText: 'Yes',
       denyText: 'No'

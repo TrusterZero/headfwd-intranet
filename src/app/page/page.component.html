@@ -1,3 +1,13 @@
-<p>
-  page works!
-</p>
+<mat-card>
+  <mat-form-field>
+    <input matInput id="title" placeholder="Title" [(ngModel)]="page.title">
+  </mat-form-field>
+  <h6 [hidden]="!page.id" (click)="deleteWarning()">Delete Page</h6>
+</mat-card>
+<mat-card>
+  <app-ngx-editor [placeholder]="'Enter text here...'"[spellcheck]="true" [(ngModel)]="page.text"></app-ngx-editor>
+  <div class="buttonHolder">
+    <button mat-raised-button (click)="handleChanges()">Save</button>
+    <button mat-raised-button (click)="cancelChanges()">Cancel</button>
+  </div>
+</mat-card>

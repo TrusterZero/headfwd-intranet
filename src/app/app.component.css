@@ -12,6 +12,7 @@ nav {
 }
 message {
   position: absolute;
+  z-index: 100;
   top: 50%;
   left: 50%;
 }

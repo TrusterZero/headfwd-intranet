@@ -1,7 +1,5 @@
-import {Component, HostListener} from '@angular/core';
-import {CategoryService} from './services/category.service';
+import {Component} from '@angular/core';
 import {ContentMode, NavigationService} from './services/navigation.service';
-import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-root',

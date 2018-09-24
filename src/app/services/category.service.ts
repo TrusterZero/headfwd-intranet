@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {Category} from '../category/category';
 import {ApiService, Resource} from './api.service';
+import {PageService} from './page.service';
+import {Page} from '../page/page';
 
 
 @Injectable({
@@ -11,8 +13,18 @@ export class CategoryService {
   initialCategories: Category[] = [];
   categories: BehaviorSubject<Category[]> = new BehaviorSubject<Category[]>(this.initialCategories)
 
-  constructor(private api: ApiService) {
+  constructor(private api: ApiService, private pageService: PageService) {
+    this.pageService.pages.subscribe((pages: Page[]) => this.loadPages(pages));
     this.refreshCategories();
+
+  }
+
+  loadPages(pages: Page[]) {
+    const categories = this.categories.getValue()
+    categories.forEach((category) => {
+      category.pages = (pages.filter((page) => page.categoryId === category.id));
+    });
+    this.categories.next(categories);
   }
 
   createNewCategory(category: Category) {
@@ -44,7 +56,7 @@ export class CategoryService {
     //   console.log(categories)
     //   this.categories.next(categories);
     // });
-    this.categories.next([
+    const categories = [
       {
         "id": 1,
         "title": "Lorem Ipsum",
@@ -65,6 +77,9 @@ export class CategoryService {
         "title": "Lorem Ipsum",
         "pages":[]
       }
-    ]);
+    ];
+    this.categories.next(categories);
+    const pages = this.pageService.pages.getValue();
+    this.loadPages(pages);
   }
 }

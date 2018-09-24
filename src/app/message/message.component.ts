@@ -13,12 +13,7 @@ import {Message } from './message.interface';
 
 export class MessageComponent implements OnChanges, OnInit  {
   initialMessage: Message = {
-    text: null,
-    action: null,
-    denyAction: null,
-    acceptText: 'OK',
-    denyText: 'No',
-    loading: false
+    text: null
   };
   message: Message;
 
@@ -45,7 +40,7 @@ export class MessageComponent implements OnChanges, OnInit  {
     }
       this.resetMessage();
   }
-  private runAction(): void {
+  private acceptAction(): void {
     if (this.message.action) {
       this.message.action();
     }

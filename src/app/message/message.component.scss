@@ -1,32 +1,32 @@
-.message {
-  width: 200px;
-  height: 100px;
-  padding: 10px;
-  background-color: rgba(40, 40, 40, 0.8);
-  text-align: center;
+  .message {
+    width: 200px;
+    height: 100px;
+    padding: 10px;
+    background-color: rgba(40, 40, 40, 0.8);
+    text-align: center;
 
-  img {
-    width: 25px;
-  }
-  p {
-    color: white;
-    font-family: 'Ubuntu', sans-serif;
-  }
-  .button-holder {
-    margin: auto;
-
-    button {
-      display: inline;
+    img {
+      width: 25px;
+    }
+    p {
       color: white;
-      padding: 7.5px 15px;
-      border: solid 2px rgba(80, 80, 80, 1);
-      border-radius: 4px;
-      margin: 15px 20px;
-      background-color: rgba(90, 90, 90, 0.8);
+      font-family: 'Ubuntu', sans-serif;
+    }
+    .button-holder {
+      margin: auto;
 
-      &:hover {
-        background-color: rgba(100, 100, 100, 0.9);
+      button {
+        display: inline;
+        color: white;
+        padding: 7.5px 15px;
+        border: solid 2px rgba(80, 80, 80, 1);
+        border-radius: 4px;
+        margin: 15px 20px;
+        background-color: rgba(90, 90, 90, 0.8);
+
+        &:hover {
+          background-color: rgba(100, 100, 100, 0.9);
+        }
       }
     }
   }
-}

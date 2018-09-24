@@ -1,9 +1,10 @@
 <header></header>
+<message></message>
 <nav></nav>
-
 <div class="content">
-  <message></message>
   <admin-dashboard [hidden]="activeContendMode !== ContentMode.dashboard"></admin-dashboard>
   <category [hidden]="activeContendMode !== ContentMode.category"></category>
+  <page [hidden]="activeContendMode !== ContentMode.page"></page>
 </div>
+
 

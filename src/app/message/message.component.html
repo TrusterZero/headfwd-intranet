@@ -1,8 +1,9 @@
+
 <div class="message" *ngIf="message.text != null" >
   <p>{{message.text}}</p>
-  <div *ngIf="message.action != null" class="button-holder">
-    <button  (click)="runAction()">{{message.acceptText}}</button>
-    <button [hidden]="!message.denyText" (click)="denyAction()" >{{message.denyText}}</button>
+  <div  class="button-holder">
+    <button (click)="acceptAction()">{{message.acceptText || 'OK'}}</button>
+    <button *ngIf="message.denyAction" (click)="denyAction()" >{{message.denyText}}</button>
   </div>
   <img *ngIf="message.loading" src="assets/loading.gif">
   <!-- Loading gif image here-->
